@@ -1,0 +1,15 @@
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-triangulation.exe
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-triangulation.deps.json
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-triangulation.runtimeconfig.json
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-triangulation.dll
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-triangulation.pdb
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.csproj.AssemblyReference.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.AssemblyInfoInputs.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.AssemblyInfo.cs
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.csproj.CoreCompileInputs.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.dll
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\refint\Wifi-triangulation.dll
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.pdb
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-triangulation.genruntimeconfig.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\ref\Wifi-triangulation.dll

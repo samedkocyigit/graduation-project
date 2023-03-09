@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wifi-triangulation", "Wifi-triangulation\Wifi-triangulation.csproj", "{D28AED29-C5F0-476D-8BB9-A6E314B37623}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D28AED29-C5F0-476D-8BB9-A6E314B37623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28AED29-C5F0-476D-8BB9-A6E314B37623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28AED29-C5F0-476D-8BB9-A6E314B37623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28AED29-C5F0-476D-8BB9-A6E314B37623}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {670C0C32-0176-4BE4-8A9B-512DFC61BC86}
+	EndGlobalSection
+EndGlobal
