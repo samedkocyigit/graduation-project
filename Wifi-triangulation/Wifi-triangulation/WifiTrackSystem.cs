@@ -25,13 +25,45 @@ namespace ConsoleApp1
         //[DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
 
         //public static extern int system(string format);
-        static double averageSignalStrenghtFromFirstAccessPoint() { return 0f; }
-        static double averageSignalStrenghtFromSecAccessPoint() { return 0f; }
-        static double averageSignalStrenghtFromThirdAccessPoint() { return 0f; }
-        private static void calculateUserPosition(objectPositions accessP1, objectPositions accessP2, objectPositions accessP3, double distanceOne, double distanceSec, double distanceThird)
+        public static double PercentageToDbm(int percentage) //Convertion for a signal percentage to dbm 
         {
+            if (percentage <= 0)
+            {
+                return -100.0;
+            }
+            else if (percentage >= 100)
+            {
+                return -50.0;
+            }
+            else
+            {
+                return (double)(percentage / 2) - 100.0;
+            }
+        }
+        static double signalStrenghtFromFirstAccessPoint() 
+        {
+            return 0;
+        }
+        static double signalStrenghtFromSecAccessPoint() 
+        {
+            return 0; 
+        }
+        static double signalStrenghtFromThirdAccessPoint() 
+        { 
+            return 0; 
+        }
+        private static void calculateUserPositionWithTrileteration(objectPositions accessP1, objectPositions accessP2, objectPositions accessP3, double distanceOne, double distanceSec, double distanceThird)
+        { 
             objectPositions userPosition = new objectPositions();
-
+            double A = (2 * accessP2.x) - (2 * accessP1.x);
+            double B = (2 * accessP2.y) - (2 * accessP1.y);
+            double C = Math.Pow(distanceOne,2) - Math.Pow(distanceSec,2) -Math.Pow(accessP1.x,2) + Math.Pow(accessP2.x, 2) - Math.Pow(accessP1.y, 2) + Math.Pow(accessP2.y, 2);
+            double D = (2 * accessP3.x) - (2 * accessP2.x);
+            double E = (2 * accessP3.y) - (2 * accessP2.y);
+            double F = Math.Pow(distanceSec, 2) - Math.Pow(distanceThird, 2) - Math.Pow(accessP2.x, 2) + Math.Pow(accessP3.x, 2) - Math.Pow(accessP2.y, 2) + Math.Pow(accessP3.y, 2);
+            userPosition.x = (C * E - F * B) / (E * A - B * D);
+            userPosition.y = (C * D - F * A) / (B * D - A * E);
+            userPosition.signal =0;    
         }
         private static void GetUserLocation(objectPositions firstAP, objectPositions secAP, objectPositions thirdAP)
         {
@@ -41,7 +73,7 @@ namespace ConsoleApp1
             double distance3 = CalculateDistanceFromSignalStrength(thirdAP.signal);
 
             // Calculate the intersection point of the 3 circles formed by the user's distance from each modem
-            calculateUserPosition(firstAP, secAP, thirdAP, distance1, distance2, distance3);
+            calculateUserPositionWithTrileteration(firstAP, secAP, thirdAP, distance1, distance2, distance3);
         }
         private static double CalculateDistanceFromSignalStrength(double signalStrength)
         {
@@ -58,9 +90,9 @@ namespace ConsoleApp1
         }
         static void Main(string[] args)
         {
-            double signalFirst = averageSignalStrenghtFromFirstAccessPoint();   //distance from first access point between user location
-            double signalSec = averageSignalStrenghtFromSecAccessPoint();     //distance from second access point between user location
-            double signalThird = averageSignalStrenghtFromThirdAccessPoint(); //distance from third access point between user location
+            double signalFirst = signalStrenghtFromFirstAccessPoint();   //distance from first access point between user location
+            double signalSec = signalStrenghtFromSecAccessPoint();     //distance from second access point between user location
+            double signalThird = signalStrenghtFromThirdAccessPoint(); //distance from third access point between user location
             objectPositions firstAccessP = new objectPositions(0.0, 600.0, signalFirst);
             objectPositions secAccessP = new objectPositions(0.0, 0.0, signalSec);
             objectPositions thirdAccessP = new objectPositions(600.0, 0.0, signalThird);
@@ -71,8 +103,8 @@ namespace ConsoleApp1
         }
 
     }
-        //string cmd = "netsh wlan show networks mode = bssid";//komut satırı veya powershell için komut
-        //system(cmd);
+    //string cmd = "(netsh wlan show interfaces) -Match '^\s+Signal' -Replace '^\s+Signal\s+:\s+',''r";//komut satırı veya powershell için komut
+    //system(cmd);
 }
 
 
