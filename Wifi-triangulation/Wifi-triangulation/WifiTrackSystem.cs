@@ -44,71 +44,110 @@ namespace ConsoleApp1
         {
             double signalStrenght1;
             string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
-            StreamReader streamReader = new StreamReader(filePath);
+            string templateString;
+            string wanted = "TP-LINK_1074";
 
-            string aranan = "100%";
-
-            while (!streamReader.EndOfStream)
+            using (StreamReader streamReader = new StreamReader(filePath))
             {
-                string satir = streamReader.ReadLine();
-                if (satir.Contains(aranan))
+                int index = -1;
+                int lineCount = 0;
+                while (!streamReader.EndOfStream)
                 {
-                    aranan = aranan.Replace("%", "");
-                    break;
+                    string wantedLine = streamReader.ReadLine();
+                    lineCount++;
+
+                    if (wantedLine.Contains(wanted))
+                    {
+                        index = lineCount - 1; // keep the line index
+                    }
+                }
+                if (index != -1 && (index + 4) < lineCount)
+                {
+                    // access to after index fifth line
+                    string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
+                    templateString = sonrakiDorduncuSatir.Replace("Signal", "");
+                    templateString = templateString.Replace(" ", "");
+                    templateString = templateString.Replace(":", "");
+                    templateString = templateString.Replace("%", "");
                 }
             }
-            signalStrenght1 = double.Parse(aranan);
+            Console.ReadLine();
+            signalStrenght1 = double.Parse(wanted);
             signalStrenght1 = PercentageToDbm(signalStrenght1);
-
-            streamReader.Close();
 
             return signalStrenght1;
         }
-        private static double signalStrenghtFromSecAccessPoint() 
+        private static double signalStrenghtFromSecAccessPoint()
         {
             double signalStrenght2;
             string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
-            StreamReader streamReader = new StreamReader(filePath);
+            string templateString;
+            string wanted = "TP-LINK_1074";
 
-            string aranan = "50%";
-
-            while (!streamReader.EndOfStream)
+            using (StreamReader streamReader = new StreamReader(filePath))
             {
-                string satir = streamReader.ReadLine();
-                if (satir.Contains(aranan))
+                int index = -1;
+                int lineCount = 0;
+                while (!streamReader.EndOfStream)
                 {
-                    aranan=aranan.Replace("%", "");
-                    break;
+                    string wantedLine = streamReader.ReadLine();
+                    lineCount++;
+
+                    if (wantedLine.Contains(wanted))
+                    {
+                        index = lineCount - 1; // keep the line index
+                    }
+                }
+                if (index != -1 && (index + 4) < lineCount)
+                {
+                    // access to after index fifth line 
+                    string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
+                    templateString = sonrakiDorduncuSatir.Replace("Signal", "");
+                    templateString = templateString.Replace(" ", "");
+                    templateString = templateString.Replace(":", "");
+                    templateString = templateString.Replace("%", "");
                 }
             }
-            signalStrenght2 = double.Parse(aranan);
+            Console.ReadLine();
+            signalStrenght2 = double.Parse(wanted);
             signalStrenght2 = PercentageToDbm(signalStrenght2);
-            
-            streamReader.Close();
-            
+
             return signalStrenght2;
         }
-        private static double signalStrenghtFromThirdAccessPoint() 
+        private static double signalStrenghtFromThirdAccessPoint()
         {
             double signalStrenght3;
             string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
-            StreamReader streamReader = new StreamReader(filePath);
+            string templateString;
+            string wanted = "TP-LINK_1074";
 
-            string aranan = "30%";
-
-            while (!streamReader.EndOfStream)
+            using (StreamReader streamReader = new StreamReader(filePath))
             {
-                string satir = streamReader.ReadLine();
-                if (satir.Contains(aranan))
+                int index = -1;
+                int lineCount = 0;
+                while (!streamReader.EndOfStream)
                 {
-                    aranan = aranan.Replace("%", "");
-                    break;
+                    string wantedLine = streamReader.ReadLine();
+                    lineCount++;
+
+                    if (wantedLine.Contains(wanted))
+                    {
+                        index = lineCount - 1; // keep the line index
+                    }
+                }
+                if (index != -1 && (index + 4) < lineCount)
+                {
+                    // access to after index fifth line
+                    string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
+                    templateString = sonrakiDorduncuSatir.Replace("Signal", "");
+                    templateString = templateString.Replace(" ", "");
+                    templateString = templateString.Replace(":", "");
+                    templateString = templateString.Replace("%", "");
                 }
             }
-            signalStrenght3 = double.Parse(aranan);
+            Console.ReadLine();
+            signalStrenght3 = double.Parse(wanted);
             signalStrenght3 = PercentageToDbm(signalStrenght3);
-
-            streamReader.Close();
 
             return signalStrenght3;
         }
