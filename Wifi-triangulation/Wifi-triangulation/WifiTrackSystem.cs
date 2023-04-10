@@ -40,113 +40,106 @@ namespace ConsoleApp1
                 return (percentage / 2) - 100.0;
             }
         }
-        private static double signalStrenghtFromFirstAccessPoint() 
+        private static double signalStrenghtFromFirstAccessPoint()
         {
-            double signalStrenght1;
             string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+
+            StreamReader streamReader = new StreamReader(filePath);
+
+            double signalStrenght1;
+
             string templateString;
             string wanted = "TP-LINK_1074";
-
-            using (StreamReader streamReader = new StreamReader(filePath))
+            int index = -1;
+            int lineCount = 0;
+            while (!streamReader.EndOfStream)
             {
-                int index = -1;
-                int lineCount = 0;
-                while (!streamReader.EndOfStream)
+                string wantedLine = streamReader.ReadLine();
+                lineCount++;
+                if (wantedLine.Contains(wanted))
                 {
-                    string wantedLine = streamReader.ReadLine();
-                    lineCount++;
-
-                    if (wantedLine.Contains(wanted))
-                    {
-                        index = lineCount - 1; // keep the line index
-                    }
-                }
-                if (index != -1 && (index + 4) < lineCount)
-                {
-                    // access to after index fifth line
-                    string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
-                    templateString = sonrakiDorduncuSatir.Replace("Signal", "");
-                    templateString = templateString.Replace(" ", "");
-                    templateString = templateString.Replace(":", "");
-                    templateString = templateString.Replace("%", "");
+                    index = lineCount - 1; // keep the line index
                 }
             }
-            Console.ReadLine();
-            signalStrenght1 = double.Parse(wanted);
+
+            // access to after index fifth line
+            string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
+
+            templateString = sonrakiDorduncuSatir.Replace("Signal", "");
+            templateString = templateString.Replace(" ", "");
+            templateString = templateString.Replace(":", "");
+            templateString = templateString.Replace("%", "");
+
+            signalStrenght1 = double.Parse(templateString);
             signalStrenght1 = PercentageToDbm(signalStrenght1);
 
             return signalStrenght1;
         }
         private static double signalStrenghtFromSecAccessPoint()
         {
-            double signalStrenght2;
             string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+
+            StreamReader streamReader = new StreamReader(filePath);
+            
+            double signalStrenght2;
+                
             string templateString;
-            string wanted = "TP-LINK_1074";
-
-            using (StreamReader streamReader = new StreamReader(filePath))
+            string wanted = "SUPERONLINE-WiFi_8853";
+            int index = -1;
+            int lineCount = 0;
+            while (!streamReader.EndOfStream)
             {
-                int index = -1;
-                int lineCount = 0;
-                while (!streamReader.EndOfStream)
+                string wantedLine = streamReader.ReadLine();
+                lineCount++;
+                if (wantedLine.Contains(wanted))
                 {
-                    string wantedLine = streamReader.ReadLine();
-                    lineCount++;
-
-                    if (wantedLine.Contains(wanted))
-                    {
-                        index = lineCount - 1; // keep the line index
-                    }
-                }
-                if (index != -1 && (index + 4) < lineCount)
-                {
-                    // access to after index fifth line 
-                    string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
-                    templateString = sonrakiDorduncuSatir.Replace("Signal", "");
-                    templateString = templateString.Replace(" ", "");
-                    templateString = templateString.Replace(":", "");
-                    templateString = templateString.Replace("%", "");
+                    index = lineCount - 1; // keep the line index
                 }
             }
-            Console.ReadLine();
-            signalStrenght2 = double.Parse(wanted);
+            
+              // access to after index fifth line
+            string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
+                
+            templateString = sonrakiDorduncuSatir.Replace("Signal", "");
+            templateString = templateString.Replace(" ", "");
+            templateString = templateString.Replace(":", "");
+            templateString = templateString.Replace("%", "");
+
+            signalStrenght2 = double.Parse(templateString);
             signalStrenght2 = PercentageToDbm(signalStrenght2);
 
             return signalStrenght2;
         }
         private static double signalStrenghtFromThirdAccessPoint()
         {
-            double signalStrenght3;
             string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+
+            StreamReader streamReader = new StreamReader(filePath);
+
+            double signalStrenght3;
+
             string templateString;
-            string wanted = "TP-LINK_1074";
-
-            using (StreamReader streamReader = new StreamReader(filePath))
+            string wanted = "ibbWiFi";
+            int index = -1;
+            int lineCount = 0;
+            while (!streamReader.EndOfStream)
             {
-                int index = -1;
-                int lineCount = 0;
-                while (!streamReader.EndOfStream)
+                string wantedLine = streamReader.ReadLine();
+                lineCount++;
+                if (wantedLine.Contains(wanted))
                 {
-                    string wantedLine = streamReader.ReadLine();
-                    lineCount++;
-
-                    if (wantedLine.Contains(wanted))
-                    {
-                        index = lineCount - 1; // keep the line index
-                    }
-                }
-                if (index != -1 && (index + 4) < lineCount)
-                {
-                    // access to after index fifth line
-                    string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
-                    templateString = sonrakiDorduncuSatir.Replace("Signal", "");
-                    templateString = templateString.Replace(" ", "");
-                    templateString = templateString.Replace(":", "");
-                    templateString = templateString.Replace("%", "");
+                    index = lineCount - 1; // keep the line index
                 }
             }
-            Console.ReadLine();
-            signalStrenght3 = double.Parse(wanted);
+            // access to after index fifth line
+            string sonrakiDorduncuSatir = File.ReadLines(filePath).Skip(index + 5).First();
+
+            templateString = sonrakiDorduncuSatir.Replace("Signal", "");
+            templateString = templateString.Replace(" ", "");
+            templateString = templateString.Replace(":", "");
+            templateString = templateString.Replace("%", "");
+
+            signalStrenght3 = double.Parse(templateString);
             signalStrenght3 = PercentageToDbm(signalStrenght3);
 
             return signalStrenght3;
