@@ -1,0 +1,15 @@
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-Tracking.exe
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-Tracking.deps.json
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-Tracking.runtimeconfig.json
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-Tracking.dll
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\bin\Debug\net6.0\Wifi-Tracking.pdb
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.csproj.AssemblyReference.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.AssemblyInfoInputs.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.AssemblyInfo.cs
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.csproj.CoreCompileInputs.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.dll
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\refint\Wifi-Tracking.dll
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.pdb
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\Wifi-Tracking.genruntimeconfig.cache
+C:\Users\samed\Desktop\wifi-triangulation-project\Wifi-triangulation\Wifi-triangulation\obj\Debug\net6.0\ref\Wifi-Tracking.dll

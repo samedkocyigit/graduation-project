@@ -14,18 +14,18 @@ namespace ConsoleApp1
     {
         public double x, y,signal;
 
-        public objectPositions(double firstVal, double secVal,double signalStrenght)
+        public objectPositions(double firstVal, double secVal, double signalStrenght)
         {
-            x=firstVal; y = secVal; signal=signalStrenght;
+            x = firstVal; y = secVal; signal = signalStrenght;
         }
     }; 
 
     public class Program
     {
-        //[DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
+        [DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
 
-        //public static extern int system(string format);
-        public static double PercentageToDbm(int percentage) //Convertion for a signal percentage to dbm 
+        public static extern int system(string format);
+        public static double PercentageToDbm(double percentage) //Convertion for a signal percentage to dbm 
         {
             if (percentage <= 0)
             {
@@ -37,20 +37,80 @@ namespace ConsoleApp1
             }
             else
             {
-                return (double)(percentage / 2) - 100.0;
+                return (percentage / 2) - 100.0;
             }
         }
-        static double signalStrenghtFromFirstAccessPoint() 
+        private static double signalStrenghtFromFirstAccessPoint() 
         {
-            return 0;
+            double signalStrenght1;
+            string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+            StreamReader streamReader = new StreamReader(filePath);
+
+            string aranan = "100%";
+
+            while (!streamReader.EndOfStream)
+            {
+                string satir = streamReader.ReadLine();
+                if (satir.Contains(aranan))
+                {
+                    aranan = aranan.Replace("%", "");
+                    break;
+                }
+            }
+            signalStrenght1 = double.Parse(aranan);
+            signalStrenght1 = PercentageToDbm(signalStrenght1);
+
+            streamReader.Close();
+
+            return signalStrenght1;
         }
-        static double signalStrenghtFromSecAccessPoint() 
+        private static double signalStrenghtFromSecAccessPoint() 
         {
-            return 0; 
+            double signalStrenght2;
+            string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+            StreamReader streamReader = new StreamReader(filePath);
+
+            string aranan = "50%";
+
+            while (!streamReader.EndOfStream)
+            {
+                string satir = streamReader.ReadLine();
+                if (satir.Contains(aranan))
+                {
+                    aranan=aranan.Replace("%", "");
+                    break;
+                }
+            }
+            signalStrenght2 = double.Parse(aranan);
+            signalStrenght2 = PercentageToDbm(signalStrenght2);
+            
+            streamReader.Close();
+            
+            return signalStrenght2;
         }
-        static double signalStrenghtFromThirdAccessPoint() 
-        { 
-            return 0; 
+        private static double signalStrenghtFromThirdAccessPoint() 
+        {
+            double signalStrenght3;
+            string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+            StreamReader streamReader = new StreamReader(filePath);
+
+            string aranan = "30%";
+
+            while (!streamReader.EndOfStream)
+            {
+                string satir = streamReader.ReadLine();
+                if (satir.Contains(aranan))
+                {
+                    aranan = aranan.Replace("%", "");
+                    break;
+                }
+            }
+            signalStrenght3 = double.Parse(aranan);
+            signalStrenght3 = PercentageToDbm(signalStrenght3);
+
+            streamReader.Close();
+
+            return signalStrenght3;
         }
         private static void calculateUserPositionWithTrileteration(objectPositions accessP1, objectPositions accessP2, objectPositions accessP3, double distanceOne, double distanceSec, double distanceThird)
         { 
@@ -63,7 +123,8 @@ namespace ConsoleApp1
             double F = Math.Pow(distanceSec, 2) - Math.Pow(distanceThird, 2) - Math.Pow(accessP2.x, 2) + Math.Pow(accessP3.x, 2) - Math.Pow(accessP2.y, 2) + Math.Pow(accessP3.y, 2);
             userPosition.x = (C * E - F * B) / (E * A - B * D);
             userPosition.y = (C * D - F * A) / (B * D - A * E);
-            userPosition.signal =0;    
+            userPosition.signal =0;  
+            Console.WriteLine("User Estimate Position x ={0} y={1}" ,userPosition.x,userPosition.y);
         }
         private static void GetUserLocation(objectPositions firstAP, objectPositions secAP, objectPositions thirdAP)
         {
@@ -82,29 +143,26 @@ namespace ConsoleApp1
             double Grx = 2.0;  // receive antenna gain of the Wi-Fi modem in dBi
             double f = (2.4f * Math.Pow(10, 9));  // frequency of the Wi-Fi signal in Hz
             double lambda = 3.0 * Math.Pow(10, 8) / f;  // wavelength of the Wi-Fi signal in meters
+            lambda *= 100;   //convert to centimeters
             double L = 1.0;  // system loss factor in dB
             double signalLoss = L + 20 * Math.Log10(lambda / (4 * Math.PI)) + Gtx + Grx - signalStrength;  // signal loss in dB
             double distance = Math.Pow(10, signalLoss / 20) * Math.Sqrt(Ptx);  // distance between the modem and user in meters
+            distance *= 100; //convert to centimeter
 
             return distance;
         }
         static void Main(string[] args)
         {
-            double signalFirst = signalStrenghtFromFirstAccessPoint();   //distance from first access point between user location
-            double signalSec = signalStrenghtFromSecAccessPoint();     //distance from second access point between user location
-            double signalThird = signalStrenghtFromThirdAccessPoint(); //distance from third access point between user location
-            objectPositions firstAccessP = new objectPositions(0.0, 600.0, signalFirst);
-            objectPositions secAccessP = new objectPositions(0.0, 0.0, signalSec);
+            double signalFirst = signalStrenghtFromFirstAccessPoint();   //signal from first access point between user location
+            double signalSec = signalStrenghtFromSecAccessPoint();     //signal from second access point between user location
+            double signalThird = signalStrenghtFromThirdAccessPoint(); //signal from third access point between user location
+            objectPositions firstAccessP = new objectPositions(0.0, 0.0, signalFirst);
+            objectPositions secAccessP = new objectPositions(0.0, 600.0, signalSec);
             objectPositions thirdAccessP = new objectPositions(600.0, 0.0, signalThird);
 
             GetUserLocation(firstAccessP,secAccessP,thirdAccessP);
-
-            
         }
-
     }
-    //string cmd = "(netsh wlan show interfaces) -Match '^\s+Signal' -Replace '^\s+Signal\s+:\s+',''r";//komut satırı veya powershell için komut
-    //system(cmd);
 }
 
 

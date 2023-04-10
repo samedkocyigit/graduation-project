@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samed\\Desktop\\wifi-triangulation-project\\Wifi-triangulation\\Wifi-triangulation\\Wifi-triangulation.csproj",
-      "projectName": "Wifi-triangulation",
-      "projectPath": "C:\\Users\\samed\\Desktop\\wifi-triangulation-project\\Wifi-triangulation\\Wifi-triangulation\\Wifi-triangulation.csproj",
+      "projectUniqueName": "C:\\Users\\samed\\Desktop\\wifi-triangulation-project\\Wifi-triangulation\\Wifi-triangulation\\Wifi-Tracking.csproj",
+      "projectName": "Wifi-Tracking",
+      "projectPath": "C:\\Users\\samed\\Desktop\\wifi-triangulation-project\\Wifi-triangulation\\Wifi-triangulation\\Wifi-Tracking.csproj",
       "packagesPath": "C:\\Users\\samed\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\samed\\Desktop\\wifi-triangulation-project\\Wifi-triangulation\\Wifi-triangulation\\obj\\",
       "projectStyle": "PackageReference",
