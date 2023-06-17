@@ -42,7 +42,7 @@ namespace ConsoleApp1
         }
         private static double signalStrenghtFromFirstAccessPoint()
         {
-            string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+            string filePath = @"C:\Users\samed\Desktop\Deneme-testi.txt";
 
             StreamReader streamReader = new StreamReader(filePath);
 
@@ -70,21 +70,21 @@ namespace ConsoleApp1
             templateString = templateString.Replace(":", "");
             templateString = templateString.Replace("%", "");
 
-            signalStrenght1 = double.Parse(templateString);
+            signalStrenght1 = double.Parse(templateString);  //converting string to double
             signalStrenght1 = PercentageToDbm(signalStrenght1);
 
             return signalStrenght1;
         }
         private static double signalStrenghtFromSecAccessPoint()
         {
-            string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+            string filePath = @"C:\Users\samed\Desktop\Deneme-testi.txt";
 
             StreamReader streamReader = new StreamReader(filePath);
             
             double signalStrenght2;
                 
             string templateString;
-            string wanted = "SUPERONLINE-WiFi_8853";
+            string wanted = "harrryyy";
             int index = -1;
             int lineCount = 0;
             while (!streamReader.EndOfStream)
@@ -105,21 +105,21 @@ namespace ConsoleApp1
             templateString = templateString.Replace(":", "");
             templateString = templateString.Replace("%", "");
 
-            signalStrenght2 = double.Parse(templateString);
+            signalStrenght2 = double.Parse(templateString);  //converting string to double
             signalStrenght2 = PercentageToDbm(signalStrenght2);
 
             return signalStrenght2;
         }
         private static double signalStrenghtFromThirdAccessPoint()
         {
-            string filePath = @"C:\Users\samed\Desktop\ConsoleApp1\Test.txt";
+            string filePath = @"C:\Users\samed\Desktop\Deneme-testi.txt";
 
             StreamReader streamReader = new StreamReader(filePath);
 
             double signalStrenght3;
 
             string templateString;
-            string wanted = "ibbWiFi";
+            string wanted = "Samed-iPhone";
             int index = -1;
             int lineCount = 0;
             while (!streamReader.EndOfStream)
@@ -189,10 +189,11 @@ namespace ConsoleApp1
             double signalSec = signalStrenghtFromSecAccessPoint();     //signal from second access point between user location
             double signalThird = signalStrenghtFromThirdAccessPoint(); //signal from third access point between user location
             objectPositions firstAccessP = new objectPositions(0.0, 0.0, signalFirst);
-            objectPositions secAccessP = new objectPositions(0.0, 600.0, signalSec);
-            objectPositions thirdAccessP = new objectPositions(600.0, 0.0, signalThird);
+            objectPositions secAccessP = new objectPositions(400.0, 500.0, signalSec);
+            objectPositions thirdAccessP = new objectPositions(0.0, 500.0, signalThird);
 
             GetUserLocation(firstAccessP,secAccessP,thirdAccessP);
+            // netsh wlan show networks mode = bssid | Out - File - FilePath C: \Users\samed\Desktop\ConsoleApp1\Test.txt   ~~~ command for writing datas in txt file
         }
     }
 }
